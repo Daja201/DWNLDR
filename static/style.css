@@ -1,0 +1,154 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #000;
+  font-family: -apple-system, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.panel {
+  border: 1px solid #000;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.panel h2 {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.row:last-child { margin-bottom: 0; }
+
+input[type="text"] {
+  flex: 1;
+  min-width: 160px;
+  padding: 8px;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+}
+
+select {
+  padding: 8px;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+}
+
+button {
+  padding: 8px 12px;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover { background: #000; color: #fff; }
+button:active { opacity: 0.7; }
+button:disabled { opacity: 0.4; cursor: default; }
+button:disabled:hover { background: #fff; color: #000; }
+
+.list { display: flex; flex-direction: column; gap: 6px; }
+
+.item {
+  border: 1px solid #000;
+  padding: 8px;
+}
+
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.item-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.item-meta {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+.bar {
+  height: 4px;
+  background: #eee;
+  margin-top: 6px;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #000;
+  width: 0%;
+}
+
+.actions { display: flex; gap: 6px; }
+
+.log {
+  height: 160px;
+  overflow-y: auto;
+  border: 1px solid #000;
+  padding: 8px;
+  font-family: monospace;
+  font-size: 11px;
+  white-space: pre-wrap;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.hidden { display: none; }
+
+.modal-box {
+  border: 1px solid #000;
+  background: #fff;
+  padding: 12px;
+  width: 90%;
+  max-width: 480px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+#folderList .entry {
+  border: 1px solid #000;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+#folderList .entry:hover { background: #000; color: #fff; }
+
+#folderPath { font-family: monospace; }
+
+.empty { opacity: 0.5; padding: 8px; }

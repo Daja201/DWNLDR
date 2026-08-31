@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  reel:
+    build: .
+    container_name: reel
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      # Where files are saved inside the container. The UI lets you browse
+      # and pick a subfolder under this path, and also create new ones.
+      - DOWNLOAD_BASE=/sdc
+      - DB_PATH=/app/data/app.db
+      - LOG_PATH=/app/data/app.log
+      - TZ=Europe/Prague
+      # How long a completed file stays available in RAM for a quick
+      # browser download, in minutes (in addition to living on disk).
+      - RAM_CACHE_MINUTES=30
+      # Optional: your own Spotify API app credentials if you hit rate
+      # limits (https://developer.spotify.com)
+      - SPOTIFY_CLIENT_ID=
+      - SPOTIFY_CLIENT_SECRET=
+    volumes:
+      # Change the LEFT side to the host path/drive you want exposed as
+      # /sdc inside the container - e.g. an already-mounted network share.
+      - /sdc:/sdc
+      - ./data:/app/data
+    # Uncomment for age-restricted/private YouTube videos - put a
+    # cookies.txt file at ./data/cookies.txt first.
+    #  - ./data/cookies.txt:/app/data/cookies.txt:ro
+
